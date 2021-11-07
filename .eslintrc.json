@@ -31,8 +31,14 @@
   },
   "overrides": [
     {
-      "files": ["src/**/*.test.@(js|jsx|ts|tsx)", "src/setupTests.ts"],
+      "files": [
+        "**/*.stories.*",
+        ".storybook/**",
+        "src/**/*.test.@(js|jsx|ts|tsx)",
+        "src/setupTests.ts"
+      ],
       "rules": {
+        "import/no-anonymous-default-export": "off",
         "import/no-extraneous-dependencies": "off"
       }
     }
