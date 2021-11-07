@@ -4,6 +4,9 @@ import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import "./tailwind.generated.css"
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
