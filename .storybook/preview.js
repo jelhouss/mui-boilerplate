@@ -3,13 +3,13 @@ export const parameters = {
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/,
-    },
+      date: /Date$/
+    }
   },
   a11y: {
     element: "#root",
     config: {},
     options: {},
-    manual: true,
+    manual: true
   }
 }
