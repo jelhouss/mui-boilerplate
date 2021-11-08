@@ -51,10 +51,10 @@
     "lint:check": "eslint \"src/**/*.{ts,tsx,js}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js}\" --fix",
     "prepare": "husky install",
-    "storybook": "start-storybook -p 6006 -s public",
-    "storybook:build": "build-storybook -s public",
-    "watch:css": "postcss ./src/tailwind.css -o ./src/tailwind.generated.css",
-    "build:css": "NODE_ENV=production postcss ./src/tailwind.css -o ./src/tailwind.generated.css"
+    "storybook": "npm run watch:css && start-storybook -p 6006 -s public",
+    "storybook:build": "npm run build:css && build-storybook -s public",
+    "watch:css": "postcss ./src/global.css -o ./src/global.build.css",
+    "build:css": "NODE_ENV=production postcss ./src/global.css -o ./src/global.build.css"
   },
   "browserslist": {
     "production": [
