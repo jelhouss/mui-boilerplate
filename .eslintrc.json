@@ -27,7 +27,24 @@
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".tsx", ".ts"] }],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
-    "import/extensions": [2, { "extensions": [".js", ".jsx", ".tsx", ".ts"] }]
+    "import/extensions": [2, { "extensions": [".js", ".jsx", ".tsx", ".ts"] }],
+
+    // import order rule from: https://vxlabs.com/2020/10/06/sort-typescript-import-groups-from-standard-to-local/
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", ["index", "sibling", "parent", "object"]],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+
+        // Material UI and Chakra UI are just placeholders that could be functional when using one of them
+        "pathGroups": [
+          { "pattern": "@material-ui/**", "group": "external", "position": "after" },
+          { "pattern": "@chakra-ui/**", "group": "external", "position": "after" }
+        ],
+        "newlines-between": "always-and-inside-groups",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ]
   },
   "overrides": [
     {
