@@ -10,13 +10,6 @@
   "devDependencies": {
     "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^14.1.0",
-    "@storybook/addon-a11y": "^6.3.12",
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/addon-links": "^6.3.12",
-    "@storybook/node-logger": "^6.3.12",
-    "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.3.12",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -26,7 +19,6 @@
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
-    "autoprefixer": "^10.4.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -36,25 +28,19 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.0",
-    "postcss-cli": "^9.0.2",
     "prettier": "^2.4.1",
-    "tailwindcss": "^2.2.19",
     "typescript": "^4.4.4"
   },
   "scripts": {
-    "start": "npm run watch:css && react-scripts start",
-    "build": "npm run build:css && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format:check": "prettier --check \"**/*.{scss,css,md,html,json,ts,tsx,js}\"",
     "format:fix": "prettier --write \"**/*.{scss,css,md,html,json,ts,tsx,js}\"",
     "lint:check": "eslint \"src/**/*.{ts,tsx,js}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js}\" --fix",
-    "prepare": "husky install",
-    "storybook": "npm run watch:css && start-storybook -p 6006 -s public",
-    "storybook:build": "npm run build:css && build-storybook -s public",
-    "watch:css": "postcss ./src/global.css -o ./src/global.build.css",
-    "build:css": "NODE_ENV=production postcss ./src/global.css -o ./src/global.build.css"
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [

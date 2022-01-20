@@ -1,8 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-// eslint-disable-next-line import/no-unresolved, import/extensions
-import "./global.build.css"
 import App from "./app/App"
 import reportWebVitals from "./reportWebVitals"
 
