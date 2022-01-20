@@ -11,6 +11,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:storybook/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended"
   ],
@@ -22,7 +23,15 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "import", "react-hooks", "jsx-a11y"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "import",
+    "react-hooks",
+    "jsx-a11y",
+    "storybook"
+  ],
   "rules": {
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".tsx", ".ts"] }],
     "no-use-before-define": "off",
@@ -39,10 +48,21 @@
         // Material UI and Chakra UI are just placeholders that could be functional when using one of them
         "pathGroups": [
           { "pattern": "@material-ui/**", "group": "external", "position": "after" },
-          { "pattern": "@chakra-ui/**", "group": "external", "position": "after" }
+          { "pattern": "@chakra-ui/**", "group": "external", "position": "after" },
+          { "pattern": "@storybook/**", "group": "external", "position": "after" }
         ],
         "newlines-between": "always-and-inside-groups",
         "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+
+    // apparently this rule should be included in `eslint-config-airbnb`, but it's not working
+    // so it's manually added
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
       }
     ]
   },
