@@ -1,7 +1,9 @@
 import React from "react"
 
+import PublicLayout from "../pages/public"
+
 const App = () => {
-  return <p>Hello world!</p>
+  return <PublicLayout />
 }
 
 export default App
