@@ -3,12 +3,12 @@ services:
   # ...
 
   # development
-  react-boilerplate-development:
+  development:
     build:
       context: .
       target: development # target as "development" build in Dockerfile
-    image: react-boilerplate-development
-    container_name: react-boilerplate-development
+    image: development
+    container_name: development
     command: npm run start
     ports:
       - 3000:3000
@@ -16,12 +16,12 @@ services:
       - .:/usr/react-boilerplate
       - ./node_modules:/usr/react-boilerplate/node_modules
 
-  react-boilerplate-development-storybook:
+  development-storybook:
     build:
       context: .
       target: development
-    image: react-boilerplate-development-storybook
-    container_name: react-boilerplate-development-storybook
+    image: development-storybook
+    container_name: development-storybook
     command: npm run storybook
     ports:
       - 6006:6006
@@ -29,12 +29,12 @@ services:
       - .:/usr/react-boilerplate
       - ./node_modules:/usr/react-boilerplate/node_modules
 
-  react-boilerplate-development-test:
+  development-test:
     build:
       context: .
       target: development
-    image: react-boilerplate-development-test
-    container_name: react-boilerplate-development-test
+    image: development-test
+    container_name: development-test
     command: npm run test
     volumes:
       - .:/usr/react-boilerplate
