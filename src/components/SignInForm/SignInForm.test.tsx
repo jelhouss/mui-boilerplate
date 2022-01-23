@@ -1,7 +1,8 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import React from "react"
 
-import SignInForm, { SignInFormPayload } from "./SignInForm"
+import { AuthenticationPayload } from "../../types/authentication"
+import SignInForm from "./SignInForm"
 
 test("should render without crashing", () => {
   render(<SignInForm title="Random Title" subtitle="Random subtitle" />)
@@ -34,7 +35,7 @@ test("should render email and password inputs", () => {
 // skip this test case due to correct scenario but bad result/behaviour.
 // submit function is not getting called perhaps a bug from RTL or JSDOM
 test.skip("should submit using submit button and with correct credentials", async () => {
-  const payload: SignInFormPayload = {
+  const payload: AuthenticationPayload = {
     email: "random@email.com",
     password: "random_password"
   }
