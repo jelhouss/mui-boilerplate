@@ -45,8 +45,8 @@ const SignInForm = ({
 
   return (
     <section>
-      <h1>{title}</h1>
-      <h2>{subtitle}</h2>
+      <h3>{title}</h3>
+      <h4>{subtitle}</h4>
 
       <form onSubmit={submit}>
         <div>

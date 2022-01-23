@@ -11,10 +11,10 @@ test("should render without crashing", () => {
 test("should render title and subtitle", () => {
   render(<SignUpForm title="random title" subtitle="random subtitle" />)
 
-  const title = screen.getByRole("heading", { level: 1, name: /random title/i })
+  const title = screen.getByRole("heading", { level: 3, name: /random title/i })
   expect(title).toBeInTheDocument()
 
-  const subtitle = screen.getByRole("heading", { level: 2, name: /random subtitle/i })
+  const subtitle = screen.getByRole("heading", { level: 4, name: /random subtitle/i })
   expect(subtitle).toBeInTheDocument()
 })
 
