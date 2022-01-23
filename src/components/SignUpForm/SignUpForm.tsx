@@ -6,20 +6,10 @@ import React, { SyntheticEvent, useCallback } from "react"
 import { useForm } from "react-hook-form"
 import * as Z from "zod"
 
+import { RegistrationPayload } from "../../types/registration"
 import { UserGender } from "../../types/user"
 
-export interface SignUpFormPayloadBase {
-  firstName: string
-  lastName: string
-  email: string
-  password: string
-  gender: UserGender
-  dayOfBirth: number
-  monthOfBirth: number
-  yearOfBirth: number
-}
-
-export interface SignUpFormPayload extends SignUpFormPayloadBase {
+export interface SignUpFormPayload extends RegistrationPayload {
   confirmPassword: string
 }
 
@@ -55,7 +45,7 @@ export interface SignUpFormProps {
   title?: string
   subtitle?: string
   isLoading?: boolean
-  onSubmit?: (signUpFormPayload: SignUpFormPayloadBase) => void
+  onSubmit?: (signUpFormPayload: RegistrationPayload) => void
 }
 
 const SignUpForm = ({
@@ -71,7 +61,7 @@ const SignUpForm = ({
     (e: SyntheticEvent) => {
       e.preventDefault()
 
-      handleSubmit((data: SignUpFormPayloadBase) => onSubmit && onSubmit(data))(e)
+      handleSubmit((data: RegistrationPayload) => onSubmit && onSubmit(data))(e)
     },
     [handleSubmit, onSubmit]
   )

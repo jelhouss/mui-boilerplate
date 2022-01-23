@@ -6,12 +6,9 @@ import React, { SyntheticEvent, useCallback } from "react"
 import { useForm } from "react-hook-form"
 import * as Z from "zod"
 
-export interface SignInFormPayload {
-  email: string
-  password: string
-}
+import { AuthenticationPayload } from "../../types/authentication"
 
-const schema: Z.ZodSchema<SignInFormPayload> = Z.object({
+const schema: Z.ZodSchema<AuthenticationPayload> = Z.object({
   email: Z.string().email({ message: "Please provide a valid e-mail address." }),
   password: Z.string()
     .min(8, { message: "Password must be 8 or more characters long." })
@@ -22,7 +19,7 @@ export interface SignInFormProps {
   title?: string
   subtitle?: string
   isLoading?: boolean
-  onSubmit?: (signInFormPayload: SignInFormPayload) => void
+  onSubmit?: (signInFormPayload: AuthenticationPayload) => void
 }
 
 const SignInForm = ({
@@ -30,7 +27,7 @@ const SignInForm = ({
   subtitle = "Use you credentials to sign in, we can't wait to see you!",
   onSubmit
 }: SignInFormProps) => {
-  const { register, handleSubmit, control } = useForm<SignInFormPayload>({
+  const { register, handleSubmit, control } = useForm<AuthenticationPayload>({
     resolver: zodResolver(schema)
   })
 
@@ -38,7 +35,7 @@ const SignInForm = ({
     (e: SyntheticEvent) => {
       e.preventDefault()
 
-      handleSubmit((data: SignInFormPayload) => onSubmit && onSubmit(data))(e)
+      handleSubmit((data: AuthenticationPayload) => onSubmit && onSubmit(data))(e)
     },
     [handleSubmit, onSubmit]
   )
