@@ -4,13 +4,13 @@ export enum UserGender {
   O = "other"
 }
 
-interface User {
+export interface User {
+  id: string
   firstName: string
   lastName: string
+  email: string
   dayOfBirth: string
   yearOfBirth: string
   monthOfBirth: string
   gender: UserGender
 }
-
-export default User
