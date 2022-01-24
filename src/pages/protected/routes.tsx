@@ -1,5 +1,5 @@
 import React from "react"
-import { RouteProps } from "react-router-dom"
+import { Navigate, RouteProps } from "react-router-dom"
 
 import Home from "./Home"
 
@@ -12,9 +12,15 @@ const routes: CustomRoute[] = [
   {
     label: "Home",
     element: <Home />,
-    path: "/",
+    path: "/app",
     index: true,
     includeInNavigationMenu: true
+  },
+  {
+    label: "Redirection to Home",
+    element: <Navigate to="/app" replace />,
+    path: "*",
+    includeInNavigationMenu: false
   }
 ]
 

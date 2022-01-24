@@ -1,7 +1,7 @@
 import React from "react"
 import { QueryClient, QueryClientProvider } from "react-query"
 
-import PublicLayout from "../pages/public"
+import Layout from "../pages"
 
 const queryCache = new QueryClient({
   defaultOptions: {
@@ -15,7 +15,7 @@ const queryCache = new QueryClient({
 const App = () => {
   return (
     <QueryClientProvider client={queryCache}>
-      <PublicLayout />
+      <Layout />
     </QueryClientProvider>
   )
 }
