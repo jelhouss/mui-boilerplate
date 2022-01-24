@@ -5,7 +5,7 @@ import { User } from "../types/user"
 import BaseClient from "./BaseClient"
 
 class AuthenticationClient extends BaseClient {
-  async login({
+  async signIn({
     email,
     password
   }: AuthenticationPayload): Promise<AuthenticationResponse | AxiosError> {
@@ -25,7 +25,7 @@ class AuthenticationClient extends BaseClient {
     return response
   }
 
-  logout(): void {
+  signOut(): void {
     this.setAccessToken(null)
   }
 }
