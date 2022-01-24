@@ -3,7 +3,6 @@ import { RouteProps } from "react-router-dom"
 
 import About from "./About"
 import Home from "./Home"
-import NotFound from "./NotFound"
 import SignIn from "./SignIn"
 import SignUp from "./SignUp"
 
@@ -37,12 +36,6 @@ const routes: CustomRoute[] = [
     path: "/sign-up",
     element: <SignUp />,
     includeInNavigationMenu: true
-  },
-  {
-    label: "Not Found",
-    element: <NotFound />,
-    path: "*",
-    includeInNavigationMenu: false
   }
 ]
 
