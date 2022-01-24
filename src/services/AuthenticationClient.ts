@@ -25,7 +25,7 @@ class AuthenticationClient extends BaseClient {
     return response
   }
 
-  signOut(): void {
+  async signOut(): Promise<void> {
     this.setAccessToken(null)
   }
 }
