@@ -3,7 +3,7 @@ import React from "react"
 
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
-import SignUpForm, { SignUpFormProps } from "./SignUpForm"
+import SignUpForm, { SignUpFormProps } from "../components/SignUpForm"
 
 export default {
   title: "Forms/SignUpForm",

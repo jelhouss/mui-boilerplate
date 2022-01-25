@@ -1,8 +1,8 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import React from "react"
 
-import { AuthenticationPayload } from "../../types/authentication"
-import SignInForm from "./SignInForm"
+import SignInForm from "../components/SignInForm"
+import { AuthenticationPayload } from "../types/authentication"
 
 test("should render without crashing", () => {
   render(<SignInForm title="Random Title" subtitle="Random subtitle" />)

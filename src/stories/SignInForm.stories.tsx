@@ -3,7 +3,7 @@ import React from "react"
 
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
-import SignInForm, { SignInFormProps } from "./SignInForm"
+import SignInForm, { SignInFormProps } from "../components/SignInForm"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

@@ -6,8 +6,8 @@ import React, { SyntheticEvent, useCallback } from "react"
 import { useForm } from "react-hook-form"
 import * as Z from "zod"
 
-import { RegistrationPayload } from "../../types/registration"
-import { UserGender } from "../../types/user"
+import { RegistrationPayload } from "../types/registration"
+import { UserGender } from "../types/user"
 
 export interface SignUpFormPayload extends RegistrationPayload {
   confirmPassword: string

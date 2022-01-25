@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { useAsyncFn } from "react-use"
 
 import useAuthenticationState from "../../app/store/useAuthenticationState"
-import SignInForm from "../../components/SignInForm/SignInForm"
+import SignInForm from "../../components/SignInForm"
 import { AuthenticationPayload } from "../../types/authentication"
 
 const SignIn = () => {
