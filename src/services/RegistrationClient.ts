@@ -4,16 +4,12 @@ import { RegistrationPayload, RegistrationResponse } from "../types/registration
 import BaseClient from "./BaseClient"
 
 class RegistrationClient extends BaseClient {
-  async register({
-    email,
-    password
-  }: RegistrationPayload): Promise<RegistrationResponse | AxiosError> {
+  async register(
+    registrationPayload: RegistrationPayload
+  ): Promise<RegistrationResponse | AxiosError> {
     const {
       data: { user }
-    } = await this.client.post("/register", {
-      email,
-      password
-    })
+    } = await this.client.post("/register", registrationPayload)
 
     const response: RegistrationResponse = { user }
 
