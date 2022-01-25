@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAsyncFn } from "react-use"
 
-import SignUpForm from "../../components/SignUpForm"
+import SignUpForm from "../../components/SignUpForm/SignUpForm"
 import registrationClient from "../../services/RegistrationClient"
 import { RegistrationPayload, RegistrationResponse } from "../../types/registration"
 

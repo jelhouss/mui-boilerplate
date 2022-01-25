@@ -7,7 +7,7 @@ import React, { SyntheticEvent, useCallback } from "react"
 import { useForm } from "react-hook-form"
 import * as Z from "zod"
 
-import { AuthenticationPayload, AuthenticationResponse } from "../types/authentication"
+import { AuthenticationPayload, AuthenticationResponse } from "../../types/authentication"
 
 const schema: Z.ZodSchema<AuthenticationPayload> = Z.object({
   email: Z.string().email({ message: "Please provide a valid e-mail address." }),

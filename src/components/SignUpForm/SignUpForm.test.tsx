@@ -1,8 +1,8 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import React from "react"
 
-import SignUpForm, { SignUpFormPayload } from "../components/SignUpForm"
-import { UserGender } from "../types/user"
+import { UserGender } from "../../types/user"
+import SignUpForm, { SignUpFormPayload } from "./SignUpForm"
 
 test("should render without crashing", () => {
   render(<SignUpForm title="Random Title" subtitle="Random subtitle" />)
