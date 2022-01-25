@@ -1,7 +1,7 @@
 import { User } from "./user"
 
 export interface AuthenticationResponse {
-  user: Partial<User>
+  user: User
   token: string
 }
 

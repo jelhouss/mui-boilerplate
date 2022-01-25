@@ -5,6 +5,12 @@ import { BrowserRouter } from "react-router-dom"
 import App from "./app/App"
 import reportWebVitals from "./reportWebVitals"
 
+if (process.env.REACT_APP_OFFLINE) {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
+  const worker = require("./mocks/msw/browserMSWSetup").default
+  worker.start()
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

@@ -1,8 +1,7 @@
 import { User, UserGender } from "./user"
 
 export interface RegistrationResponse {
-  user: Partial<User>
-  token: string
+  user: User
 }
 
 export interface RegistrationPayload {

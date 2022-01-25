@@ -9,8 +9,8 @@ import { User } from "../../types/user"
 const TOKEN = "authentication_token"
 
 export interface AuthenticationState {
-  user: Partial<User> | null
-  setUser: (user: Partial<User>) => void
+  user: User | null
+  setUser: (user: User) => void
   signIn: (
     authenticationPayload: AuthenticationPayload
   ) => Promise<AuthenticationResponse | AxiosError>

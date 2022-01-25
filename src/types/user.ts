@@ -9,8 +9,10 @@ export interface User {
   firstName: string
   lastName: string
   email: string
-  dayOfBirth: string
-  yearOfBirth: string
-  monthOfBirth: string
+  dayOfBirth: number
+  yearOfBirth: number
+  monthOfBirth: number
   gender: UserGender
+  createdAt: string
+  updatedAt: string
 }

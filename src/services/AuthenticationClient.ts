@@ -1,7 +1,6 @@
 import { AxiosError } from "axios"
 
 import { AuthenticationPayload, AuthenticationResponse } from "../types/authentication"
-import { User } from "../types/user"
 import BaseClient from "./BaseClient"
 
 class AuthenticationClient extends BaseClient {
@@ -10,17 +9,15 @@ class AuthenticationClient extends BaseClient {
     password
   }: AuthenticationPayload): Promise<AuthenticationResponse | AxiosError> {
     const {
-      data: { token }
-    } = await this.client.post("/login", {
+      data: { token, user }
+    } = await this.client.post("/authenticate", {
       email,
       password
     })
 
     this.setAccessToken(token)
 
-    const dummyUser: Partial<User> = { email }
-
-    const response: AuthenticationResponse = { token, user: dummyUser }
+    const response: AuthenticationResponse = { token, user }
 
     return response
   }
@@ -31,6 +28,6 @@ class AuthenticationClient extends BaseClient {
 }
 
 export default new AuthenticationClient({
-  baseURL: process.env.REACT_APP_SERVER_API_URL,
+  baseURL: `${process.env.REACT_APP_SERVER_API_URL}/api`,
   headers: { Accept: "application/json" }
 })

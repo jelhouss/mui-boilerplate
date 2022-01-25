@@ -35,13 +35,15 @@ const Home = () => {
     return <p>Please wait while processing sign out...</p>
   }
 
+  const { firstName, lastName } = user as User
+
   return (
     <section>
       <header>
         <h1>Welcome to protected home page!</h1>
         <p>This is the home page header.</p>
       </header>
-      <p>Hi there! Your e-mail is: {(user as Partial<User>).email}</p>
+      <p>Hi {`${firstName} ${lastName}`}</p>
       <button type="button" onClick={handleSignOut}>
         Sign Out
       </button>
