@@ -2,11 +2,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { DevTool } from "@hookform/devtools"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { AxiosError } from "axios"
 import React, { SyntheticEvent, useCallback } from "react"
 import { useForm } from "react-hook-form"
 import * as Z from "zod"
 
-import { AuthenticationPayload } from "../types/authentication"
+import { AuthenticationPayload, AuthenticationResponse } from "../types/authentication"
 
 const schema: Z.ZodSchema<AuthenticationPayload> = Z.object({
   email: Z.string().email({ message: "Please provide a valid e-mail address." }),
@@ -19,7 +20,9 @@ export interface SignInFormProps {
   title?: string
   subtitle?: string
   isLoading?: boolean
-  onSubmit?: (signInFormPayload: AuthenticationPayload) => void
+  onSubmit?: (
+    signInFormPayload: AuthenticationPayload
+  ) => Promise<AuthenticationResponse | AxiosError>
 }
 
 const SignInForm = ({

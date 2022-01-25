@@ -2,11 +2,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { DevTool } from "@hookform/devtools"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { AxiosError } from "axios"
 import React, { SyntheticEvent, useCallback } from "react"
 import { useForm } from "react-hook-form"
 import * as Z from "zod"
 
-import { RegistrationPayload } from "../types/registration"
+import { RegistrationPayload, RegistrationResponse } from "../types/registration"
 import { UserGender } from "../types/user"
 
 export interface SignUpFormPayload extends RegistrationPayload {
@@ -45,7 +46,7 @@ export interface SignUpFormProps {
   title?: string
   subtitle?: string
   isLoading?: boolean
-  onSubmit?: (signUpFormPayload: RegistrationPayload) => void
+  onSubmit?: (signUpFormPayload: RegistrationPayload) => Promise<RegistrationResponse | AxiosError>
 }
 
 const SignUpForm = ({
