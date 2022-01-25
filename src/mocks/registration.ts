@@ -10,11 +10,6 @@ import generateUser from "./faker/user"
 
 const REGISTER_ROUTE = "/api/register"
 
-// lightweight helper. In this end, this is not a REAL API.
-const hasEmptyValue = (object: RegistrationPayload) =>
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  Object.entries(object).find(([key, value]) => Boolean(value))
-
 // please note that `AuthenticatedUser` is used here just for testing.
 // we just want to simulate a response for existing users.
 const registration = (randomUsers: AuthenticatedUser[]) => [
@@ -23,8 +18,6 @@ const registration = (randomUsers: AuthenticatedUser[]) => [
     REGISTER_ROUTE,
     async (req, res, ctx) => {
       const payload = req.body
-
-      if (hasEmptyValue(payload)) return res(ctx.status(400))
 
       const { email, firstName, lastName, gender, monthOfBirth, dayOfBirth, yearOfBirth } = payload
 
