@@ -6,7 +6,7 @@ import {
   AuthenticationResponse as AuthenticatedUser,
   AuthenticationResponse,
   RefreshAuthenticationResponse
-} from "../types/authentication"
+} from "../../../types/authentication"
 
 const AUTHENTICATE_ROUTE = "/api/authenticate"
 

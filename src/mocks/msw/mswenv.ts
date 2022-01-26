@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from "msw"
 
-import authentication from "../authentication"
 import { authenticatedUsers } from "../faker/user"
-import registration from "../registration"
+import authentication from "./resources/authentication"
+import registration from "./resources/registration"
 
 const methods: (keyof typeof rest)[] = ["head", "get", "post", "put", "delete", "patch", "options"]
 

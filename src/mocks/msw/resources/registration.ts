@@ -3,10 +3,10 @@ import * as faker from "@faker-js/faker"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { PathParams, rest } from "msw"
 
-import { AuthenticationResponse as AuthenticatedUser } from "../types/authentication"
-import { RegistrationPayload, RegistrationResponse } from "../types/registration"
-import { User } from "../types/user"
-import generateUser from "./faker/user"
+import { AuthenticationResponse as AuthenticatedUser } from "../../../types/authentication"
+import { RegistrationPayload, RegistrationResponse } from "../../../types/registration"
+import { User } from "../../../types/user"
+import generateUser from "../../faker/user"
 
 const REGISTER_ROUTE = "/api/register"
 
