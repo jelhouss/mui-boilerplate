@@ -3,7 +3,11 @@ import create, { State, StateCreator, UseBoundStore } from "zustand"
 import { devtools } from "zustand/middleware"
 
 import authenticationClient from "../../services/AuthenticationClient"
-import { AuthenticationPayload, AuthenticationResponse } from "../../types/authentication"
+import {
+  AuthenticationPayload,
+  AuthenticationResponse,
+  RefreshAuthenticationResponse
+} from "../../types/authentication"
 import { User } from "../../types/user"
 
 const TOKEN = "authentication_token"
@@ -15,6 +19,7 @@ export interface AuthenticationState {
     authenticationPayload: AuthenticationPayload
   ) => Promise<AuthenticationResponse | AxiosError>
   signOut: () => Promise<void>
+  refresh: () => Promise<void>
 }
 
 const authenticationState: StateCreator<AuthenticationState> = (set) => ({
@@ -40,6 +45,30 @@ const authenticationState: StateCreator<AuthenticationState> = (set) => ({
 
     // clear local storage
     localStorage.removeItem(TOKEN)
+  },
+  refresh: async () => {
+    const token = localStorage.getItem(TOKEN)
+
+    if (token) {
+      authenticationClient.setAccessToken(token)
+
+      try {
+        const response = await authenticationClient.refresh()
+
+        const { user } = response as RefreshAuthenticationResponse
+
+        // set local state
+        set({ user })
+      } catch (error) {
+        // clear runtime token (for whatever reason)
+        authenticationClient.setAccessToken(null)
+
+        // clear local storage
+        localStorage.removeItem(TOKEN)
+
+        // add another custom notification alert...
+      }
+    }
   }
 })
 

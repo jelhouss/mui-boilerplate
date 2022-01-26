@@ -1,10 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { PathParams, rest } from "msw"
+import { DefaultRequestBody, PathParams, rest } from "msw"
 
 import {
   AuthenticationPayload,
   AuthenticationResponse as AuthenticatedUser,
-  AuthenticationResponse
+  AuthenticationResponse,
+  RefreshAuthenticationResponse
 } from "../types/authentication"
 
 const AUTHENTICATE_ROUTE = "/api/authenticate"
@@ -26,16 +27,20 @@ const authentication = (randomUsers: AuthenticatedUser[]) => [
     }
   ),
 
-  // GET /api/authenticate/me
-  rest.get(`${AUTHENTICATE_ROUTE}/me`, async (req, res, ctx) => {
-    const header = req.headers.get("authorization")
-    const authenticatedUser = randomUsers.find(({ token }) => header === `Bearer ${token}`)
+  // GET /api/authenticate/refresh
+  rest.get<DefaultRequestBody, PathParams, RefreshAuthenticationResponse>(
+    `${AUTHENTICATE_ROUTE}/refresh`,
+    async (req, res, ctx) => {
+      const header = req.headers.get("authorization")
 
-    if (!header || !authenticatedUser) return res(ctx.status(401))
+      const authenticatedUser = randomUsers.find(({ token }) => header === `Bearer ${token}`)
 
-    const { user } = authenticatedUser
-    return res(ctx.status(200), ctx.json({ user }))
-  })
+      if (!header || !authenticatedUser) return res(ctx.status(401))
+
+      const { user } = authenticatedUser
+      return res(ctx.status(200), ctx.json({ user }))
+    }
+  )
 ]
 
 export default authentication

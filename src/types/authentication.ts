@@ -9,3 +9,7 @@ export interface AuthenticationPayload {
   email: string
   password: string
 }
+
+export interface RefreshAuthenticationResponse {
+  user: User
+}

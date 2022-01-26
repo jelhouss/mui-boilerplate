@@ -1,6 +1,10 @@
 import { AxiosError } from "axios"
 
-import { AuthenticationPayload, AuthenticationResponse } from "../types/authentication"
+import {
+  AuthenticationPayload,
+  AuthenticationResponse,
+  RefreshAuthenticationResponse
+} from "../types/authentication"
 import BaseClient from "./BaseClient"
 
 class AuthenticationClient extends BaseClient {
@@ -24,6 +28,16 @@ class AuthenticationClient extends BaseClient {
 
   async signOut(): Promise<void> {
     this.setAccessToken(null)
+  }
+
+  async refresh(): Promise<RefreshAuthenticationResponse | AxiosError> {
+    const {
+      data: { user }
+    } = await this.client.get("/authenticate/refresh")
+
+    const response: RefreshAuthenticationResponse = { user }
+
+    return response
   }
 }
 
