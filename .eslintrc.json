@@ -76,7 +76,7 @@
       "files": [
         "**/*.stories.*",
         ".storybook/**",
-        "src/**/*.test.@(js|jsx|ts|tsx)",
+        "src/**/*.spec.@(js|jsx|ts|tsx)",
         "src/setupTests.ts"
       ],
       "rules": {
