@@ -66,7 +66,10 @@
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js}\" --fix",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006 -s public",
-    "storybook:build": "build-storybook -s public"
+    "storybook:build": "build-storybook -s public",
+    "docker:dev": "docker compose up development",
+    "docker:dev:test": "docker compose up development-test",
+    "docker:dev:storybook": "docker compose up development-storybook"
   },
   "browserslist": {
     "production": [
