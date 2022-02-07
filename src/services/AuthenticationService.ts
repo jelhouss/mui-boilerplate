@@ -1,13 +1,13 @@
 import { AxiosError } from "axios"
 
+import BaseService from "../app/BaseService"
 import {
   AuthenticationPayload,
   AuthenticationResponse,
   RefreshAuthenticationResponse
 } from "../types/authentication"
-import BaseClient from "./BaseClient"
 
-class AuthenticationClient extends BaseClient {
+class AuthenticationService extends BaseService {
   async signIn({
     email,
     password
@@ -41,7 +41,7 @@ class AuthenticationClient extends BaseClient {
   }
 }
 
-export default new AuthenticationClient({
+export default new AuthenticationService({
   baseURL: `${process.env.REACT_APP_SERVER_API_URL}/api`,
   headers: { Accept: "application/json" }
 })

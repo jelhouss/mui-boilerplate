@@ -1,8 +1,10 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
 
 import App from "./app/App"
+import store from "./app/store"
 import reportWebVitals from "./reportWebVitals"
 
 // I had an issue when testing offline MSW API with refreshing authentication
@@ -22,9 +24,11 @@ function boostrapMSWRegistration() {
 boostrapMSWRegistration().then(() => {
   ReactDOM.render(
     <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
     </React.StrictMode>,
     document.getElementById("root")
   )

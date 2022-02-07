@@ -44,11 +44,8 @@
       {
         "groups": ["builtin", "external", "internal", ["index", "sibling", "parent", "object"]],
         "pathGroupsExcludedImportTypes": ["builtin"],
-
-        // Material UI and Chakra UI are just placeholders that could be functional when using one of them
         "pathGroups": [
           { "pattern": "@material-ui/**", "group": "external", "position": "after" },
-          { "pattern": "@chakra-ui/**", "group": "external", "position": "after" },
           { "pattern": "@storybook/**", "group": "external", "position": "after" }
         ],
         "newlines-between": "always-and-inside-groups",

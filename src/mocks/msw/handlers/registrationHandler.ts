@@ -1,12 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import * as faker from "@faker-js/faker"
+import { faker } from "@faker-js/faker"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { PathParams, rest } from "msw"
 
 import { AuthenticationResponse as AuthenticatedUser } from "../../../types/authentication"
 import { RegistrationPayload, RegistrationResponse } from "../../../types/registration"
 import { User } from "../../../types/user"
-import generateUser from "../../faker/user"
+import userFactory from "../../factories/userFactory"
 
 const REGISTER_ROUTE = "/api/register"
 
@@ -25,7 +25,7 @@ const registration = (randomUsers: AuthenticatedUser[]) => [
 
       if (existingUser) return res(ctx.status(409))
 
-      const user: User = generateUser({
+      const user: User = userFactory.build({
         email,
         firstName,
         lastName,

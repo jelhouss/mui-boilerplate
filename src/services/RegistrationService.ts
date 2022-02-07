@@ -1,9 +1,9 @@
 import { AxiosError } from "axios"
 
+import BaseService from "../app/BaseService"
 import { RegistrationPayload, RegistrationResponse } from "../types/registration"
-import BaseClient from "./BaseClient"
 
-class RegistrationClient extends BaseClient {
+class RegistrationService extends BaseService {
   async register(
     registrationPayload: RegistrationPayload
   ): Promise<RegistrationResponse | AxiosError> {
@@ -17,7 +17,7 @@ class RegistrationClient extends BaseClient {
   }
 }
 
-export default new RegistrationClient({
+export default new RegistrationService({
   baseURL: `${process.env.REACT_APP_SERVER_API_URL}/api`,
   headers: { Accept: "application/json" }
 })

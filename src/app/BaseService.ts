@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios"
 
-class BaseClient {
+class BaseService {
   private accessToken: string | null = null
 
   protected client: AxiosInstance
@@ -35,4 +35,4 @@ class BaseClient {
   }
 }
 
-export default BaseClient
+export default BaseService

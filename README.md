@@ -11,7 +11,7 @@ The file structure is also very simple, I had another file structure pattern in 
 It's setup to work:
 
 - With no styling (preferred to keep it like this)
-- Offline: using Faker and MSW
+- Offline: using data factories, Faker and MSW (see **REACT_APP_OFFLINE** variable in the local `.env` file)
 - With basic necessary packages which (IMO) every React.js app benefit from
 - With **unit** tests
 - With Storybook
@@ -19,11 +19,13 @@ It's setup to work:
 - With Docker: You can run the **dev** (environment) app using Docker and also unit tests and Storybook models can be run using Docker as well
 - With `env.` files
 - With HTTP handling using Axios and React Query (I personally use the `services` folder to setup my HTTP calls)
-- With small state handling using Zustand. No need to extend your state as your next state handling will be server state (not app) which React Query will handle
+- With state handling using Redux Toolkit. You could use other state managers that are small, but I like to use Redux and now Redux Toolkit. Server state can be handled with either Redux Toolkit Query or adding another package for that such as React Query
+- With authentication (JWT) setup
 
 ## What Could Be Added to This Boilerplate?
 
 - Add **e2e** tests using Cypress or something else
+- Enhance authentication (always important and great to do)
 - Anything that can be added to Tooling to enhance the experience
 - More basic scenario and components that will be used in every app and can be added as a boilerplate. Currently we handle authentication with basic components. It could have more other basic repetitive scenarios.
 - A **prod** Docker environment

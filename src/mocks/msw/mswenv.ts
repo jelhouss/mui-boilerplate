@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from "msw"
 
-import { authenticatedUsers } from "../faker/user"
-import authentication from "./resources/authentication"
-import registration from "./resources/registration"
+import { authenticatedUsers } from "../factories/userFactory"
+import authenticationHandler from "./handlers/authenticationHandler"
+import registrationHandler from "./handlers/registrationHandler"
 
 const methods: (keyof typeof rest)[] = ["head", "get", "post", "put", "delete", "patch", "options"]
 
@@ -14,8 +14,8 @@ const throttle = methods.map((method) =>
 
 const endpoints = [
   ...throttle,
-  ...authentication(authenticatedUsers),
-  ...registration(authenticatedUsers)
+  ...authenticationHandler(authenticatedUsers),
+  ...registrationHandler(authenticatedUsers)
 ]
 
 export default endpoints
