@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom"
 
 import App from "./app/App"
 import store from "./app/store"
+import BrandingProvider from "./BrandingProvider"
 import reportWebVitals from "./reportWebVitals"
 
 // I had an issue when testing offline MSW API with refreshing authentication
@@ -26,7 +27,9 @@ boostrapMSWRegistration().then(() => {
     <React.StrictMode>
       <Provider store={store}>
         <BrowserRouter>
-          <App />
+          <BrandingProvider>
+            <App />
+          </BrandingProvider>
         </BrowserRouter>
       </Provider>
     </React.StrictMode>,

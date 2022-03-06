@@ -16,7 +16,8 @@ const userFactory = Factory.Sync.makeFactory<User>({
   yearOfBirth: faker.datatype.number({ min: 1970, max: 2010 }),
   gender: faker.random.arrayElement(Object.values(UserGender)),
   createdAt: faker.date.past().toISOString(),
-  updatedAt: faker.date.recent().toISOString()
+  updatedAt: faker.date.recent().toISOString(),
+  avatar: faker.image.avatar()
 })
 
 export const authenticatedUsers: AuthenticatedUser[] = [

@@ -2,10 +2,10 @@ import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
 import React from "react"
 
-const StaffPage = () => {
+const AboutProductPage = () => {
   return (
     <Container component="section">
-      <Typography variant="h2">Staff</Typography>
+      <Typography variant="h2">About Product</Typography>
       <Typography variant="body1">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu metus id neque efficitur
         rutrum. Mauris vulputate odio eu auctor consectetur. Nullam quam metus, vestibulum non dolor
@@ -44,4 +44,4 @@ const StaffPage = () => {
   )
 }
 
-export default StaffPage
+export default AboutProductPage

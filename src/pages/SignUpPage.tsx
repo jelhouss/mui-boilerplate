@@ -1,3 +1,4 @@
+import Container from "@mui/material/Container"
 import React, { useCallback, useEffect } from "react"
 import { Link } from "react-router-dom"
 
@@ -34,11 +35,14 @@ const SignUpPage = () => {
   }, [errorStatus, handleClearState, status])
 
   return (
-    <section>
-      <header>
-        <h1>Welcome to sign up page!</h1>
-        <p>This is the sign up page header.</p>
-      </header>
+    <Container
+      component="section"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center"
+      }}>
       <SignUpForm title="Sign Up" onSubmit={handleRegister} isLoading={status === "loading"} />
       {status === "succeeded" && Boolean(user) ? (
         <p>
@@ -48,7 +52,7 @@ const SignUpPage = () => {
           </Link>
         </p>
       ) : null}
-    </section>
+    </Container>
   )
 }
 

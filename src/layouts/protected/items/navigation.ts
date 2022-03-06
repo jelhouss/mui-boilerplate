@@ -1,6 +1,6 @@
-import { MenuNavigationItem } from "../sharedTypes"
+import { NavigationItem } from "../../../components/Header/Header"
 
-const items: MenuNavigationItem[] = [
+const items: NavigationItem[] = [
   {
     label: "Dashboard",
     path: "/app"

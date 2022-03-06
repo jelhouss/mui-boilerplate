@@ -3,9 +3,14 @@ import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux"
 
 import authenticationReducer from "../slices/authentication"
 import registrationReducer from "../slices/registration"
+import themeReducer from "../slices/theme"
 
 const store = configureStore({
-  reducer: { authentication: authenticationReducer, registration: registrationReducer }
+  reducer: {
+    authentication: authenticationReducer,
+    registration: registrationReducer,
+    theme: themeReducer
+  }
 })
 
 // hooks

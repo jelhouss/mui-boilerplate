@@ -27,7 +27,7 @@ export interface SignInFormProps {
 
 const SignInForm = ({
   title = "Sign In Form",
-  subtitle = "Use you credentials to sign in, we can't wait to see you!",
+  subtitle = "Use you credentials to sign in.",
   onSubmit
 }: SignInFormProps) => {
   const { register, handleSubmit, control } = useForm<AuthenticationPayload>({

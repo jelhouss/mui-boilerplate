@@ -1,34 +1,58 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import React from "react"
+import { Provider } from "react-redux"
 
+import store from "../../app/store"
+import BrandingProvider from "../../BrandingProvider"
 import { AuthenticationPayload } from "../../types/authentication"
 import SignInForm from "./SignInForm"
 
+const setup = () => {
+  const submit = jest.fn()
+
+  const ui = render(
+    <Provider store={store}>
+      <BrandingProvider>
+        <SignInForm
+          title="Random Title"
+          subtitle="Random subtitle"
+          isLoading={false}
+          onSubmit={submit}
+        />
+      </BrandingProvider>
+    </Provider>
+  )
+
+  const title = screen.getByRole("heading", { level: 3, name: /random title/i })
+
+  const subtitle = screen.getByRole("heading", { level: 4, name: /random subtitle/i })
+
+  const emailInput = screen.getByLabelText(/e-mail/i)
+
+  const passwordInput = screen.getByLabelText(/password/i)
+
+  const submitButton = screen.getByRole("button", { name: /sign in/i })
+
+  return { ...ui, submit, title, subtitle, emailInput, passwordInput, submitButton }
+}
+
 test("should render without crashing", () => {
-  render(<SignInForm title="Random Title" subtitle="Random subtitle" />)
+  setup()
 })
 
 test("should render title and subtitle", () => {
-  render(<SignInForm title="random title" subtitle="random subtitle" />)
+  const { title, subtitle } = setup()
 
-  // render title
-  const title = screen.getByRole("heading", { level: 3, name: /random title/i })
   expect(title).toBeInTheDocument()
 
-  // render subtitle
-  const subtitle = screen.getByRole("heading", { level: 4, name: /random subtitle/i })
   expect(subtitle).toBeInTheDocument()
 })
 
 test("should render email and password inputs", () => {
-  render(<SignInForm title="random title" subtitle="random subtitle" />)
+  const { emailInput, passwordInput } = setup()
 
-  // render email
-  const emailInput = screen.getByLabelText(/e-mail/i)
   expect(emailInput).toBeInTheDocument()
 
-  // render password
-  const passwordInput = screen.getByLabelText(/password/i)
   expect(passwordInput).toBeInTheDocument()
 })
 
@@ -40,14 +64,7 @@ test.skip("should submit using submit button and with correct credentials", asyn
     password: "random_password"
   }
 
-  const submit = jest.fn()
-
-  render(<SignInForm title="random title" subtitle="random subtitle" onSubmit={submit} />)
-
-  // get elements
-  const emailInput = screen.getByLabelText(/e-mail/i)
-  const passwordInput = screen.getByLabelText(/password/i)
-  const submitButton = screen.getByRole("button", { name: /sign in/i })
+  const { submit, emailInput, passwordInput, submitButton } = setup()
 
   // simulate typing
   fireEvent.change(emailInput, { target: { value: payload.email } })

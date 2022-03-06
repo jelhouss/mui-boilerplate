@@ -1,3 +1,4 @@
+import CircularProgress from "@mui/material/CircularProgress"
 import React, { useCallback, useEffect, useState } from "react"
 import { useRoutes } from "react-router-dom"
 
@@ -47,7 +48,7 @@ const App = () => {
     handleRefresh()
   }, [handleRefreshAuthentication])
 
-  return appIsRefreshing ? <p>Application is refreshing...</p> : content
+  return appIsRefreshing ? <CircularProgress /> : content
 }
 
 export default App

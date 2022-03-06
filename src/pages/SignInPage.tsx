@@ -1,3 +1,4 @@
+import Container from "@mui/material/Container"
 import React, { useCallback, useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 
@@ -44,13 +45,16 @@ const SignInPage = () => {
   }, [errorStatus, handleClearState, status])
 
   return (
-    <section>
-      <header>
-        <h1>Welcome to sign in page!</h1>
-        <p>This is the sign in page header.</p>
-      </header>
+    <Container
+      component="section"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center"
+      }}>
       <SignInForm title="Sign In" onSubmit={handleSignIn} isLoading={status === "loading"} />
-    </section>
+    </Container>
   )
 }
 
