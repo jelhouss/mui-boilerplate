@@ -10,7 +10,7 @@ const useProfileAvatarPopper = ({ onItemClick, onSignOut }: ProfileAvatarPopperP
   const popperRef = React.useRef<HTMLDivElement | null>(null)
 
   const handleOnClickAway = React.useCallback(
-    (event) => {
+    (event: MouseEvent | TouchEvent) => {
       if (popperRef.current && !popperRef.current.contains(event.target as Node)) {
         // reset the state something like setIsOpen(false)
         toggleIsPopperMenuOpen(false)

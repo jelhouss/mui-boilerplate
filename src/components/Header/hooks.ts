@@ -25,7 +25,7 @@ const useHeaderLogic = ({
   const handleToggleTheme = React.useCallback(() => dispatch(toggleTheme()), [dispatch])
 
   const handleOnClickAway = React.useCallback(
-    (event) => {
+    (event: MouseEvent | TouchEvent) => {
       if (
         mobileNavigationRef.current &&
         !mobileNavigationRef.current.contains(event.target as Node)
