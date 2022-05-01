@@ -119,8 +119,11 @@ const ProfileAvatarPopper = ({
                           : "rgba(170, 180, 190, 0.3)"
                       }`
                   }}>
-                  <Typography variant="h4">
-                    Hey, {`${user?.firstName} ${user?.lastName}`}
+                  <Typography variant="h5">
+                    Hey, {`${user?.firstName} ${user?.lastName}`}!{" "}
+                    <span role="img" aria-label="greetings">
+                      👋
+                    </span>
                   </Typography>
 
                   <Divider />
@@ -129,7 +132,7 @@ const ProfileAvatarPopper = ({
                     {profileAvatarPopperItems?.map((item) => (
                       <ListItemButton key={item.path} onClick={() => handleOnItemClick(item)}>
                         <ListItemText
-                          primary={<Typography variant="body2">{item.label}</Typography>}
+                          primary={<Typography variant="body1">{item.label}</Typography>}
                         />
                       </ListItemButton>
                     ))}
@@ -146,7 +149,7 @@ const ProfileAvatarPopper = ({
                           }}
                         />
                       </ListItemIcon>
-                      <ListItemText primary={<Typography variant="body2">Sign Out</Typography>} />
+                      <ListItemText primary={<Typography variant="body1">Sign Out</Typography>} />
                     </ListItemButton>
                   </List>
                 </Box>

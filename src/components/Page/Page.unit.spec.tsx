@@ -5,27 +5,24 @@ import { MemoryRouter } from "react-router-dom"
 
 import store from "../../app/store"
 import BrandingProvider from "../../BrandingProvider"
-import items from "../../layouts/protected/items/navigation"
-import SideNavigation from "./SideNavigation"
+import items from "../../layouts/public/items/footer"
+import Page from "./Page"
 
 // use real routes to keep instead of custom ones
-const routeEntries = items.map(({ path }) => path)
+const routeEntries = items.map(({ items: subitems }) => subitems.map(({ path }) => path))
 
 const setup = () => {
-  const onOpen = jest.fn()
-  const onClose = jest.fn()
-
   const ui = render(
     <Provider store={store}>
-      <MemoryRouter initialEntries={routeEntries}>
+      <MemoryRouter initialEntries={routeEntries.flat()}>
         <BrandingProvider>
-          <SideNavigation items={items} onClose={onClose} onOpen={onOpen} isOpen={false} />
+          <Page title="Hello world">This is my content!</Page>
         </BrandingProvider>
       </MemoryRouter>
     </Provider>
   )
 
-  return { ...ui, onOpen, onClose }
+  return { ...ui }
 }
 
 test("should render without crashing", () => {

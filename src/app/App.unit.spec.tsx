@@ -1,4 +1,5 @@
 import { render } from "@testing-library/react"
+import { SnackbarProvider } from "notistack"
 import React from "react"
 import { Provider } from "react-redux"
 import { MemoryRouter } from "react-router-dom"
@@ -12,7 +13,9 @@ test("should render without crashing", async () => {
     <Provider store={store}>
       <MemoryRouter>
         <BrandingProvider>
-          <App />
+          <SnackbarProvider>
+            <App />
+          </SnackbarProvider>
         </BrandingProvider>
       </MemoryRouter>
     </Provider>

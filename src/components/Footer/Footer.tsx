@@ -42,7 +42,7 @@ const Footer = ({ items }: FooterProps) => {
           justifyContent: { sm: "space-between" }
         }}>
         <Typography color="text.secondary" variant="body2">
-          Tatooine, 2022.
+          company, inc–date.
         </Typography>
         <Box sx={{ display: "flex", py: { xs: 2, sm: 0 } }}>
           {items?.map(({ label, items: subitems }) => (

@@ -29,7 +29,7 @@ const setup = () => {
 
   const emailInput = screen.getByLabelText(/e-mail/i)
 
-  const passwordInput = screen.getByLabelText(/password/i)
+  const passwordInput = screen.getByLabelText(/^password$/i)
 
   const submitButton = screen.getByRole("button", { name: /sign in/i })
 

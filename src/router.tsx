@@ -1,12 +1,18 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import CircularProgress from "@mui/material/CircularProgress"
+import Box from "@mui/material/Box"
+import LinearProgress from "@mui/material/LinearProgress"
 import React, { Suspense, ComponentType, lazy } from "react"
 import { Navigate, RouteObject } from "react-router-dom"
 
 // eslint-disable-next-line react/display-name
 const SuspenseWrapper = (Component: ComponentType) => (props: JSX.IntrinsicAttributes) => {
   return (
-    <Suspense fallback={<CircularProgress />}>
+    <Suspense
+      fallback={
+        <Box sx={{ width: "100%" }}>
+          <LinearProgress />
+        </Box>
+      }>
       <Component {...props} />
     </Suspense>
   )
@@ -26,7 +32,6 @@ const AboutProductPage = SuspenseWrapper(lazy(() => import("./pages/AboutProduct
 
 // protected
 const DashboardPage = SuspenseWrapper(lazy(() => import("./pages/DashboardPage")))
-const StaffPage = SuspenseWrapper(lazy(() => import("./pages/StaffPage")))
 const TeamsPage = SuspenseWrapper(lazy(() => import("./pages/TeamsPage")))
 
 // user settings
@@ -83,10 +88,6 @@ const routes: RouteObject[] = [
       {
         path: "teams",
         element: <TeamsPage />
-      },
-      {
-        path: "staff",
-        element: <StaffPage />
       },
       {
         path: "user-settings",

@@ -7,7 +7,11 @@ import { ProfileAvatarPopperMenuItem } from "../ProfileAvatarPopper/ProfileAvata
 // eslint-disable-next-line import/no-cycle
 import { HeaderProps } from "./Header"
 
-const useHeaderLogic = ({ onProfileAvatarPopperItemClick, onSignOut }: HeaderProps) => {
+const useHeaderLogic = ({
+  onProfileAvatarPopperItemClick,
+  onSignOut,
+  toggleSideNavigation
+}: HeaderProps) => {
   // states
   const [isMobileNavigationOpen, toggleIsMobileNavigationOpen] = useToggle(false)
 
@@ -58,6 +62,15 @@ const useHeaderLogic = ({ onProfileAvatarPopperItemClick, onSignOut }: HeaderPro
     // next...
   }, [onSignOut])
 
+  const handleToggleSideNavigation = React.useCallback(() => {
+    // call parent callback
+    if (toggleSideNavigation) {
+      toggleSideNavigation()
+    }
+
+    // next...
+  }, [toggleSideNavigation])
+
   return {
     isMobileNavigationOpen,
     mobileNavigationRef,
@@ -67,6 +80,7 @@ const useHeaderLogic = ({ onProfileAvatarPopperItemClick, onSignOut }: HeaderPro
     handleMobileNavigationButtonIconClick,
     handleSignOut,
     handleProfileAvatarPopperItemClick,
+    handleToggleSideNavigation,
     mode
   }
 }

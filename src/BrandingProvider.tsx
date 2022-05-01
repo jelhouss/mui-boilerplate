@@ -596,10 +596,40 @@ export function getThemedComponents(theme: Theme) {
           }
         }
       },
-      MuiTab: {
-        defaultProps: {
-          disableTouchRipple: true
+      MuiTabs: {
+        styleOverrides: {
+          root: {}
         }
+      },
+      MuiTab: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {
+            fontSize: defaultTheme.typography.pxToRem(20)
+          }
+        }
+      },
+      MuiInputBase: {
+        styleOverrides: {
+          input: {
+            color: theme.palette.text.secondary,
+            bgColor:
+              theme.palette.mode === "dark"
+                ? theme.palette.primaryDark[900]
+                : theme.palette.background.paper,
+            "&::placeholder": {
+              color: theme.palette.text.secondary
+            }
+          }
+        }
+      },
+      MuiFormControl: {
+        styleOverrides: {
+          root: {}
+        }
+      },
+      MuiOutlinedInput: {
+        styleOverrides: {}
       },
       MuiPaper: {
         styleOverrides: {

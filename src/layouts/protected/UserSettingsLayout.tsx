@@ -1,20 +1,34 @@
+import Tab from "@mui/material/Tab"
+import Tabs from "@mui/material/Tabs"
 import React from "react"
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, useLocation } from "react-router-dom"
 
 import userSettingsItems from "./items/userSettingsItems"
 
 const UserSettingsLayout = () => {
+  const { pathname } = useLocation()
+
+  const [currentTab, setCurrentTab] = React.useState<string>(pathname)
+
+  const handleTabChange = React.useCallback(
+    (event: React.SyntheticEvent, newTab: string) => setCurrentTab(newTab),
+    []
+  )
+
   return (
     <section>
       <header>
         <nav>
-          <ul>
+          <Tabs
+            variant="scrollable"
+            allowScrollButtonsMobile
+            value={currentTab}
+            onChange={handleTabChange}
+            aria-label="User settings header tabs">
             {userSettingsItems.map(({ label, path }) => (
-              <li key={path}>
-                <Link to={path}>{label}</Link>
-              </li>
+              <Tab key={path} label={label} value={path} to={path} component={Link} />
             ))}
-          </ul>
+          </Tabs>
         </nav>
       </header>
 

@@ -9,11 +9,11 @@ const userSettingsItems: UserSettingItem[] = [
     path: "/app/user-settings"
   },
   {
-    label: "UserSettings",
+    label: "User Settings",
     path: "/app/user-settings/settings"
   },
   {
-    label: "User statistics",
+    label: "User Statistics",
     path: "/app/user-settings/statistics"
   }
 ]

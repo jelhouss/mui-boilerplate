@@ -7,47 +7,45 @@ import React from "react"
 // eslint-disable-next-line import/no-cycle
 import useSearchButtonLogic from "./hooks"
 
-const SearchButtonWrapper = styled("button")(({ theme }) => {
-  return {
-    minHeight: 34,
-    display: "flex",
-    alignItems: "center",
-    paddingLeft: theme.spacing(1),
-    [theme.breakpoints.only("xs")]: {
-      backgroundColor: "transparent",
-      padding: 0,
-      minWidth: 34,
-      justifyContent: "center",
-      "& > *:not(.MuiSvgIcon-root)": {
-        display: "none"
-      }
-    },
-    [theme.breakpoints.up("sm")]: {
-      minWidth: 200
-    },
-    fontFamily: theme.typography.fontFamily,
-    position: "relative",
-    backgroundColor:
-      theme.palette.mode === "dark" ? theme.palette.primaryDark[900] : theme.palette.grey[50],
-    color: theme.palette.text.secondary,
-    fontSize: theme.typography.pxToRem(14),
-    border: `1px solid ${
-      theme.palette.mode === "dark" ? theme.palette.primaryDark[700] : theme.palette.grey[200]
-    }`,
-    borderRadius: 10,
-    cursor: "pointer",
-    transitionProperty: "all",
-    transitionDuration: "150ms",
-    "&:hover": {
-      background:
-        theme.palette.mode === "dark"
-          ? alpha(theme.palette.primaryDark[700], 0.4)
-          : alpha(theme.palette.grey[100], 0.7),
-      borderColor:
-        theme.palette.mode === "dark" ? theme.palette.primaryDark[600] : theme.palette.grey[300]
+const SearchButtonWrapper = styled("button")(({ theme }) => ({
+  minHeight: 34,
+  display: "flex",
+  alignItems: "center",
+  paddingLeft: theme.spacing(1),
+  [theme.breakpoints.only("xs")]: {
+    backgroundColor: "transparent",
+    padding: 0,
+    minWidth: 34,
+    justifyContent: "center",
+    "& > *:not(.MuiSvgIcon-root)": {
+      display: "none"
     }
+  },
+  [theme.breakpoints.up("sm")]: {
+    minWidth: 200
+  },
+  fontFamily: theme.typography.fontFamily,
+  position: "relative",
+  backgroundColor:
+    theme.palette.mode === "dark" ? theme.palette.primaryDark[900] : theme.palette.grey[50],
+  color: theme.palette.text.secondary,
+  fontSize: theme.typography.pxToRem(14),
+  border: `1px solid ${
+    theme.palette.mode === "dark" ? theme.palette.primaryDark[700] : theme.palette.grey[200]
+  }`,
+  borderRadius: 10,
+  cursor: "pointer",
+  transitionProperty: "all",
+  transitionDuration: "150ms",
+  "&:hover": {
+    background:
+      theme.palette.mode === "dark"
+        ? alpha(theme.palette.primaryDark[700], 0.4)
+        : alpha(theme.palette.grey[100], 0.7),
+    borderColor:
+      theme.palette.mode === "dark" ? theme.palette.primaryDark[600] : theme.palette.grey[300]
   }
-})
+}))
 
 const SearchLabel = styled("span")(({ theme }) => {
   return {

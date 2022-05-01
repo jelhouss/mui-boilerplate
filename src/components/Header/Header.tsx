@@ -15,7 +15,6 @@ import styled from "@mui/styles/styled"
 import React from "react"
 import { Link } from "react-router-dom"
 
-import logo from "../../logo.png"
 import { User } from "../../types/user"
 import ProfileAvatarPopper, {
   ProfileAvatarPopperMenuItem
@@ -117,9 +116,16 @@ const useMobileNavigationAnchorItemStyles = makeStyles((theme) => ({
   }
 }))
 
+const DrawerIconWrapper = styled(IconButton)(({ theme }) => ({
+  [theme.breakpoints.up("lg")]: {
+    display: "none"
+  }
+}))
+
 export interface NavigationItem {
   label: string
   path: string
+  icon?: React.ReactNode
 }
 
 export interface HeaderProps {
@@ -137,6 +143,10 @@ export interface HeaderProps {
   profileAvatarPopperItems?: ProfileAvatarPopperMenuItem[]
   onProfileAvatarPopperItemClick?: (item: ProfileAvatarPopperMenuItem) => void
   onSignOut?: () => void
+
+  // drawer handler props
+  enableSideNavigation?: boolean
+  toggleSideNavigation?: () => void
 }
 
 const Header = ({
@@ -153,7 +163,11 @@ const Header = ({
   user,
   profileAvatarPopperItems,
   onProfileAvatarPopperItemClick,
-  onSignOut
+  onSignOut,
+
+  // drawer handler props
+  enableSideNavigation = false,
+  toggleSideNavigation
 }: HeaderProps) => {
   const anchorStyles = useMobileNavigationAnchorItemStyles()
 
@@ -165,29 +179,24 @@ const Header = ({
     handleToggleTheme,
     handleProfileAvatarPopperItemClick,
     handleSignOut,
+    handleToggleSideNavigation,
     mode
-  } = useHeaderLogic({ onSignOut, onProfileAvatarPopperItemClick })
+  } = useHeaderLogic({ onSignOut, onProfileAvatarPopperItemClick, toggleSideNavigation })
 
   return (
     <HeaderWrapper>
       <Container sx={{ display: "flex", alignItems: "center", minHeight: 56 }}>
-        {/* logo section */}
-        <Box
-          aria-label="Go to home page"
-          sx={{
-            lineHeight: 0,
-            width: 48,
-            height: 48
-          }}>
-          <img
-            alt="Application logo"
-            src={logo}
-            style={{
-              width: "inherit",
-              height: "inherit"
-            }}
-          />
-        </Box>
+        {/* drawer handler section */}
+        {enableSideNavigation ? (
+          <DrawerIconWrapper
+            edge="start"
+            color="primary"
+            aria-label="Open side navigation"
+            onClick={handleToggleSideNavigation}
+            sx={{ ml: "1px" }}>
+            <SvgHamburgerMenu />
+          </DrawerIconWrapper>
+        ) : null}
 
         {/* navigation items section */}
         {items ? (

@@ -1,3 +1,6 @@
+import Box from "@mui/material/Box"
+import Paper from "@mui/material/Paper"
+import { SnackbarProvider } from "notistack"
 import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
@@ -28,7 +31,30 @@ boostrapMSWRegistration().then(() => {
       <Provider store={store}>
         <BrowserRouter>
           <BrandingProvider>
-            <App />
+            <SnackbarProvider
+              hideIconVariant
+              preventDuplicate
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "center"
+              }}
+              content={(key, message) => (
+                <Paper key={key}>
+                  <Box
+                    sx={(theme) => ({
+                      p: 4,
+                      boxShadow: `0px 4px 20px ${
+                        theme.palette.mode === "dark"
+                          ? "rgba(0, 0, 0, 0.5)"
+                          : "rgba(170, 180, 190, 0.3)"
+                      }`
+                    })}>
+                    {message}
+                  </Box>
+                </Paper>
+              )}>
+              <App />
+            </SnackbarProvider>
           </BrandingProvider>
         </BrowserRouter>
       </Provider>

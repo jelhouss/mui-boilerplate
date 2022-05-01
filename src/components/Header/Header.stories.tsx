@@ -26,7 +26,8 @@ export default {
     onHeaderSearchOpen: { action: "onHeaderSearchOpen" },
     onHeaderSearch: { action: "onHeaderSearch" },
     onProfileAvatarPopperItemClick: { action: "onProfileAvatarPopperItemClick" },
-    onSignOut: { action: "onSignOut" }
+    onSignOut: { action: "onSignOut" },
+    toggleSideNavigation: { action: "toggleSideNavigation" }
   },
   decorators: [
     (Story) => (
