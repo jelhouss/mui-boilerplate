@@ -15,4 +15,5 @@ export interface User {
   gender: UserGender
   createdAt: string
   updatedAt: string
+  avatar: string
 }

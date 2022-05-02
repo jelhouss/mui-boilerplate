@@ -1,31 +1,26 @@
 import React, { useMemo } from "react"
-import { Link, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 
+import Footer from "../../components/Footer/Footer"
+import Header from "../../components/Header/Header"
 import RedirectToDashboardIfAuthenticated from "../utils/RedirectToDashboardIfAuthenticated"
-import publicItems from "./items"
+import FooterItems from "./items/footer"
+import publicItems from "./items/navigation"
 
 const PublicLayout = () => {
-  const items = useMemo(() => publicItems, [])
+  const navigationItems = useMemo(() => publicItems, [])
+  const footerItems = useMemo(() => FooterItems, [])
 
   return (
     <RedirectToDashboardIfAuthenticated>
       <div>
-        <header>This is a header for custom announcements</header>
-        <nav>
-          <ul>
-            {items.map(({ label, path }) => (
-              <li key={path}>
-                <Link to={path as string}>{label}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <Header items={navigationItems} />
 
         <main>
           <Outlet />
         </main>
 
-        <footer>This is a footer</footer>
+        <Footer items={footerItems} />
       </div>
     </RedirectToDashboardIfAuthenticated>
   )

@@ -1,3 +1,6 @@
+import Box from "@mui/material/Box"
+import Paper from "@mui/material/Paper"
+import { SnackbarProvider } from "notistack"
 import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
@@ -5,6 +8,7 @@ import { BrowserRouter } from "react-router-dom"
 
 import App from "./app/App"
 import store from "./app/store"
+import BrandingProvider from "./BrandingProvider"
 import reportWebVitals from "./reportWebVitals"
 
 // I had an issue when testing offline MSW API with refreshing authentication
@@ -26,7 +30,32 @@ boostrapMSWRegistration().then(() => {
     <React.StrictMode>
       <Provider store={store}>
         <BrowserRouter>
-          <App />
+          <BrandingProvider>
+            <SnackbarProvider
+              hideIconVariant
+              preventDuplicate
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "center"
+              }}
+              content={(key, message) => (
+                <Paper key={key}>
+                  <Box
+                    sx={(theme) => ({
+                      p: 4,
+                      boxShadow: `0px 4px 20px ${
+                        theme.palette.mode === "dark"
+                          ? "rgba(0, 0, 0, 0.5)"
+                          : "rgba(170, 180, 190, 0.3)"
+                      }`
+                    })}>
+                    {message}
+                  </Box>
+                </Paper>
+              )}>
+              <App />
+            </SnackbarProvider>
+          </BrandingProvider>
         </BrowserRouter>
       </Provider>
     </React.StrictMode>,

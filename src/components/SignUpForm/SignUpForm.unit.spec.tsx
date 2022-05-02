@@ -1,56 +1,106 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import React from "react"
+import { Provider } from "react-redux"
 
+import store from "../../app/store"
+import BrandingProvider from "../../BrandingProvider"
 import { UserGender } from "../../types/user"
 import SignUpForm, { SignUpFormPayload } from "./SignUpForm"
 
+const setup = () => {
+  const submit = jest.fn()
+
+  const ui = render(
+    <Provider store={store}>
+      <BrandingProvider>
+        <SignUpForm
+          title="Random Title"
+          subtitle="Random subtitle"
+          isLoading={false}
+          onSubmit={submit}
+        />
+      </BrandingProvider>
+    </Provider>
+  )
+
+  const title = screen.getByRole("heading", { level: 3, name: /random title/i })
+
+  const subtitle = screen.getByRole("heading", { level: 4, name: /random subtitle/i })
+
+  const [firsNameInput, lastNameInput] = screen.getAllByLabelText(/name/i)
+
+  const emailInput = screen.getByLabelText(/e-mail/i)
+
+  const [passwordInput, confirmPasswordInput] = screen.getAllByLabelText(/password/i)
+
+  const dayOfBirthInput = screen.getByLabelText(/day/i)
+
+  const monthOfBirthInput = screen.getByLabelText(/month/i)
+
+  const yearOfBirthInput = screen.getByLabelText(/year/i)
+
+  const [genderMaleRadioInput, genderFemaleRadioInput] = screen.getAllByLabelText(/male/i)
+
+  const genderOtherRadioInput = screen.getByLabelText(/other/i)
+
+  const submitButton = screen.getByRole("button", { name: /sign up/i })
+
+  return {
+    ...ui,
+    submit,
+    title,
+    subtitle,
+    firsNameInput,
+    lastNameInput,
+    emailInput,
+    passwordInput,
+    confirmPasswordInput,
+    dayOfBirthInput,
+    monthOfBirthInput,
+    yearOfBirthInput,
+    genderMaleRadioInput,
+    genderFemaleRadioInput,
+    genderOtherRadioInput,
+    submitButton
+  }
+}
+
 test("should render without crashing", () => {
-  render(<SignUpForm title="Random Title" subtitle="Random subtitle" />)
+  setup()
 })
 
 test("should render title and subtitle", () => {
-  render(<SignUpForm title="random title" subtitle="random subtitle" />)
+  const { title, subtitle } = setup()
 
-  const title = screen.getByRole("heading", { level: 3, name: /random title/i })
   expect(title).toBeInTheDocument()
 
-  const subtitle = screen.getByRole("heading", { level: 4, name: /random subtitle/i })
   expect(subtitle).toBeInTheDocument()
 })
 
 test("should render text inputs: First name, last name, e-mail, password, and confirm password", () => {
-  render(<SignUpForm />)
+  const { firsNameInput, lastNameInput, emailInput, passwordInput, confirmPasswordInput } = setup()
 
-  const [firsNameInput, lastNameInput] = screen.getAllByLabelText(/name/i)
   expect(firsNameInput).toBeInTheDocument()
   expect(lastNameInput).toBeInTheDocument()
 
-  const emailInput = screen.getByLabelText(/e-mail/i)
   expect(emailInput).toBeInTheDocument()
 
-  const [passwordInput, confirmPasswordInput] = screen.getAllByLabelText(/password/i)
   expect(passwordInput).toBeInTheDocument()
   expect(confirmPasswordInput).toBeInTheDocument()
 })
 
 test("should render date inputs: day, month and year of birth", () => {
-  render(<SignUpForm />)
+  const { dayOfBirthInput, monthOfBirthInput, yearOfBirthInput } = setup()
 
-  const dayOfBirthInput = screen.getByLabelText(/day/i)
   expect(dayOfBirthInput).toBeInTheDocument()
 
-  const monthOfBirthInput = screen.getByLabelText(/month/i)
   expect(monthOfBirthInput).toBeInTheDocument()
 
-  const yearOfBirthInput = screen.getByLabelText(/year/i)
   expect(yearOfBirthInput).toBeInTheDocument()
 })
 
 test("should render radio inputs: gender", () => {
-  render(<SignUpForm />)
-
-  const [genderMaleRadioInput, genderFemaleRadioInput] = screen.getAllByLabelText(/male/i)
-  const genderOtherRadioInput = screen.getByLabelText(/other/i)
+  const { genderMaleRadioInput, genderFemaleRadioInput, genderOtherRadioInput } = setup()
 
   expect(genderMaleRadioInput).toBeInTheDocument()
   expect(genderFemaleRadioInput).toBeInTheDocument()
@@ -72,20 +122,19 @@ test.skip("should submit using submit button and with correct credentials", asyn
     gender: UserGender.M
   }
 
-  const submit = jest.fn()
-
-  render(<SignUpForm onSubmit={submit} />)
-
-  // get elements
-  const [firsNameInput, lastNameInput] = screen.getAllByLabelText(/name/i)
-  const emailInput = screen.getByLabelText(/e-mail/i)
-  const [passwordInput, confirmPasswordInput] = screen.getAllByLabelText(/password/i)
-  const dayOfBirthInput = screen.getByLabelText(/day/i)
-  const monthOfBirthInput = screen.getByLabelText(/month/i)
-  const yearOfBirthInput = screen.getByLabelText(/year/i)
-  const [genderMaleRadioInput] = screen.getAllByLabelText(/male/i)
-
-  const submitButton = screen.getByRole("button", { name: /sign up/i })
+  const {
+    submit,
+    firsNameInput,
+    lastNameInput,
+    emailInput,
+    passwordInput,
+    confirmPasswordInput,
+    dayOfBirthInput,
+    monthOfBirthInput,
+    yearOfBirthInput,
+    genderMaleRadioInput,
+    submitButton
+  } = setup()
 
   // simulate typing
   fireEvent.change(firsNameInput, { target: { value: payload.firstName } })
