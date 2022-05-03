@@ -1,4 +1,5 @@
-import CircularProgress from "@mui/material/CircularProgress"
+import Box from "@mui/material/Box"
+import LinearProgress from "@mui/material/LinearProgress"
 import React, { useCallback, useEffect, useState } from "react"
 import { useRoutes } from "react-router-dom"
 
@@ -48,7 +49,13 @@ const App = () => {
     handleRefresh()
   }, [handleRefreshAuthentication])
 
-  return appIsRefreshing ? <CircularProgress /> : content
+  return appIsRefreshing ? (
+    <Box sx={{ width: "100%" }}>
+      <LinearProgress />
+    </Box>
+  ) : (
+    content
+  )
 }
 
 export default App
