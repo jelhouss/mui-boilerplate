@@ -1,5 +1,4 @@
-// This code is copied AS IS from Material UI docs theme setup (Feb 12 2022)
-// See: https://github.com/mui/material-ui-docs/blob/latest/docs/src/modules/brandingTheme.ts
+// Basically the MUI docs theme, with very few tweaks.
 
 import ArrowDropDownRounded from "@mui/icons-material/ArrowDropDownRounded"
 import { PaletteMode } from "@mui/material"
