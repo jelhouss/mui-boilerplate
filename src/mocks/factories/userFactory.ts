@@ -14,7 +14,7 @@ const userFactory = Factory.Sync.makeFactory<User>({
   monthOfBirth: faker.datatype.number({ min: 1, max: 12 }),
   dayOfBirth: faker.datatype.number({ min: 1, max: 31 }),
   yearOfBirth: faker.datatype.number({ min: 1970, max: 2010 }),
-  gender: faker.random.arrayElement(Object.values(UserGender)),
+  gender: faker.helpers.arrayElement(Object.values(UserGender)),
   createdAt: faker.date.past().toISOString(),
   updatedAt: faker.date.recent().toISOString(),
   avatar: faker.image.avatar()

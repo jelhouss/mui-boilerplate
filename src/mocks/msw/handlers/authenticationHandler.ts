@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { DefaultRequestBody, PathParams, rest } from "msw"
+import { DefaultBodyType, PathParams, rest } from "msw"
 
 import {
   AuthenticationPayload,
@@ -28,7 +28,7 @@ const authentication = (randomUsers: AuthenticatedUser[]) => [
   ),
 
   // GET /api/authenticate/refresh
-  rest.get<DefaultRequestBody, PathParams, RefreshAuthenticationResponse>(
+  rest.get<DefaultBodyType, PathParams, RefreshAuthenticationResponse>(
     `${AUTHENTICATE_ROUTE}/refresh`,
     async (req, res, ctx) => {
       const header = req.headers.get("authorization")
