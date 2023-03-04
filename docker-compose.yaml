@@ -1,0 +1,17 @@
+services:
+  # production
+  # ...
+
+  # development
+  development:
+    build:
+      context: .
+      target: development # target as "development" build in Dockerfile
+    image: development
+    container_name: development
+    command: npm run start
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/mui-boilerplate
+      - ./node_modules:/usr/mui-boilerplate/node_modules

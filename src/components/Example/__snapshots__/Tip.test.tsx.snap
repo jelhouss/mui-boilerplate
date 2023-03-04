@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render and match snapshot 1`] = `
+<DocumentFragment>
+  <section>
+    <h2>
+      Hey Colin
+    </h2>
+    <h3>
+      Tip Me
+    </h3>
+    <main>
+      <p>
+        Below you can find tips:
+      </p>
+      <p>
+        loading...
+      </p>
+      <form>
+        <label
+          for="tip"
+        >
+          Tip
+        </label>
+        <input
+          aria-describedby="tip-error"
+          id="tip"
+          name="tip"
+          type="number"
+        />
+        <button
+          type="submit"
+        >
+          Add Tip
+        </button>
+      </form>
+    </main>
+  </section>
+</DocumentFragment>
+`;
