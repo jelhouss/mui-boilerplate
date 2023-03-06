@@ -1,10 +1,11 @@
+import { useSnackbar } from "notistack"
+import * as React from "react"
+import { Outlet, useNavigate } from "react-router-dom"
+
 import Box from "@mui/material/Box"
 import { Theme, useTheme } from "@mui/material/styles"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import styled from "@mui/system/styled"
-import { useSnackbar } from "notistack"
-import * as React from "react"
-import { Outlet, useNavigate } from "react-router-dom"
 
 import AuthenticationGuard from "./wrappers/AuthenticationGuard"
 import useAppStore from "../app/useAppStore"

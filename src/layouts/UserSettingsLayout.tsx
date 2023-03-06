@@ -1,7 +1,8 @@
-import Tab from "@mui/material/Tab"
-import Tabs from "@mui/material/Tabs"
 import * as React from "react"
 import { Link, Outlet, useLocation } from "react-router-dom"
+
+import Tab from "@mui/material/Tab"
+import Tabs from "@mui/material/Tabs"
 
 import getNavigationItems from "../shared/utils/getNavigationItems"
 

@@ -1,3 +1,6 @@
+import * as React from "react"
+import { Link } from "react-router-dom"
+
 import Box from "@mui/material/Box"
 import Divider from "@mui/material/Divider"
 import Drawer from "@mui/material/Drawer"
@@ -6,8 +9,6 @@ import useTheme from "@mui/material/styles/useTheme"
 import SwipeableDrawer from "@mui/material/SwipeableDrawer"
 import Typography from "@mui/material/Typography"
 import styled from "@mui/system/styled"
-import * as React from "react"
-import { Link } from "react-router-dom"
 
 import AnchorLinkAsListItem from "./AnchorLinkAsListItem"
 import SideNavigationItem from "../types/SideNavigationItem"

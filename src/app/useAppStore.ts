@@ -1,6 +1,7 @@
-import { PaletteMode } from "@mui/material"
 import { create } from "zustand"
 import { devtools } from "zustand/middleware"
+
+import { PaletteMode } from "@mui/material"
 
 import User from "../shared/types/User"
 

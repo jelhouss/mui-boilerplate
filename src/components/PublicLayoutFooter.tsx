@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom"
+
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
 import MUILink from "@mui/material/Link"
 import { useTheme } from "@mui/material/styles"
 import Typography from "@mui/material/Typography"
 import styled from "@mui/system/styled"
-import { Link } from "react-router-dom"
 
 import FooterNavigationSection from "../types/FooterNavigationSection"
 

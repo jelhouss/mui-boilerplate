@@ -1,11 +1,12 @@
-import Box from "@mui/material/Box"
-import Paper from "@mui/material/Paper"
-import Typography from "@mui/material/Typography"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { SnackbarProvider } from "notistack"
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
+
+import Box from "@mui/material/Box"
+import Paper from "@mui/material/Paper"
+import Typography from "@mui/material/Typography"
 
 import "./index.css"
 import App from "./app/App"

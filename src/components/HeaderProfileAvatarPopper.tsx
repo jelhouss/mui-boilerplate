@@ -1,3 +1,5 @@
+import * as React from "react"
+
 import LogoutIcon from "@mui/icons-material/Logout"
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined"
 import Avatar from "@mui/material/Avatar"
@@ -13,7 +15,6 @@ import ListItemText from "@mui/material/ListItemText"
 import Paper from "@mui/material/Paper"
 import Popper from "@mui/material/Popper"
 import Typography from "@mui/material/Typography"
-import * as React from "react"
 
 import useToggle from "../shared/hooks/useToggle"
 import NavigationItem from "../shared/types/NavigationItem"

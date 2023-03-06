@@ -1,8 +1,9 @@
-import MUILink from "@mui/material/Link"
-import Typography from "@mui/material/Typography"
 import { useSnackbar } from "notistack"
 import * as React from "react"
 import { Link, RouterProvider } from "react-router-dom"
+
+import MUILink from "@mui/material/Link"
+import Typography from "@mui/material/Typography"
 
 import browserRouter from "./browserRouter"
 import FullPageDisplayError from "../components/FullPageDisplayError"

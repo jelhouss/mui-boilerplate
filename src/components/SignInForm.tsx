@@ -1,4 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+import * as Z from "zod"
+
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined"
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined"
 import LoadingButton from "@mui/lab/LoadingButton"
@@ -8,9 +12,6 @@ import IconButton from "@mui/material/IconButton"
 import InputLabel from "@mui/material/InputLabel"
 import OutlinedInput from "@mui/material/OutlinedInput"
 import Tooltip from "@mui/material/Tooltip"
-import * as React from "react"
-import { useForm } from "react-hook-form"
-import * as Z from "zod"
 
 import useToggle from "../shared/hooks/useToggle"
 import AuthenticationPayload from "../types/authentication/AuthenticationPayload"

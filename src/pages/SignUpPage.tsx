@@ -1,11 +1,12 @@
+import * as React from "react"
+import { Link } from "react-router-dom"
+
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
 import MUILink from "@mui/material/Link"
 import useTheme from "@mui/material/styles/useTheme"
 import Typography from "@mui/material/Typography"
 import styled from "@mui/system/styled"
-import * as React from "react"
-import { Link } from "react-router-dom"
 
 import SignUpForm from "../components/SignUpForm"
 import useRegister from "../services/queries/registrationQuery"

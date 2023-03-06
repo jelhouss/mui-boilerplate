@@ -1,5 +1,6 @@
-import Box from "@mui/material/Box"
 import { Outlet } from "react-router-dom"
+
+import Box from "@mui/material/Box"
 
 import RedirectToProtectedIfAuthenticated from "./wrappers/RedirectToProtectedIfAuthenticated"
 import PublicLayoutFooter from "../components/PublicLayoutFooter"

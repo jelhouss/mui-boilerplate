@@ -1,8 +1,9 @@
+import * as React from "react"
+
 import ArrowDropDownRounded from "@mui/icons-material/ArrowDropDownRounded"
 import { PaletteMode, CssBaseline } from "@mui/material"
 import { createTheme, alpha, ThemeOptions, Theme, ThemeProvider } from "@mui/material/styles"
 import deepmerge from "@mui/utils/deepmerge"
-import * as React from "react"
 
 import useAppStore from "./useAppStore"
 

@@ -1,3 +1,7 @@
+import * as React from "react"
+
+import { Link } from "react-router-dom"
+
 import DarkModeOutlined from "@mui/icons-material/DarkModeOutlined"
 import LightModeOutlined from "@mui/icons-material/LightModeOutlined"
 import Box from "@mui/material/Box"
@@ -11,8 +15,6 @@ import { alpha } from "@mui/material/styles"
 import useTheme from "@mui/material/styles/useTheme"
 import Tooltip from "@mui/material/Tooltip"
 import styled from "@mui/system/styled"
-import * as React from "react"
-import { Link } from "react-router-dom"
 
 import AnchorLinkAsListItem from "./AnchorLinkAsListItem"
 import useAppStore from "../app/useAppStore"

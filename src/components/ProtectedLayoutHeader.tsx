@@ -1,3 +1,5 @@
+import * as React from "react"
+
 import DarkModeOutlined from "@mui/icons-material/DarkModeOutlined"
 import LightModeOutlined from "@mui/icons-material/LightModeOutlined"
 import Box from "@mui/material/Box"
@@ -8,7 +10,6 @@ import { alpha } from "@mui/material/styles"
 import useTheme from "@mui/material/styles/useTheme"
 import Tooltip from "@mui/material/Tooltip"
 import styled from "@mui/system/styled"
-import * as React from "react"
 
 import HeaderProfileAvatarPopper from "./HeaderProfileAvatarPopper"
 import TriggerSearchModalButton from "./TriggerSearchModalButton"
