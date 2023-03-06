@@ -10,16 +10,12 @@ const getNavigationItems = () => {
     {
       label: "Teams",
       path: "/app/teams"
-    },
-    {
-      label: "User Settings",
-      path: "/app/user-settings"
     }
   ]
 
   const popperItems: NavigationItem[] = [
     {
-      label: "Settings Dashboard",
+      label: "User Settings",
       path: "/app/user-settings"
     }
   ]
