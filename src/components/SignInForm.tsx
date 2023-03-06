@@ -27,15 +27,17 @@ const schema: Z.ZodSchema<AuthenticationPayload> = Z.object({
 })
 
 export interface SignInFormProps {
+  isSuccess?: boolean
   isLoading?: boolean
   onSubmit: (authenticationPayload: AuthenticationPayload) => unknown
 }
 
-const SignInForm = ({ isLoading = false, onSubmit }: SignInFormProps) => {
+const SignInForm = ({ isSuccess = false, isLoading = false, onSubmit }: SignInFormProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, touchedFields }
+    formState: { errors, touchedFields },
+    reset
   } = useForm<AuthenticationPayload>({
     resolver: zodResolver(schema)
   })
@@ -55,6 +57,12 @@ const SignInForm = ({ isLoading = false, onSubmit }: SignInFormProps) => {
     },
     [handleSubmit, onSubmit]
   )
+
+  React.useEffect(() => {
+    if (isSuccess) {
+      reset()
+    }
+  }, [isSuccess, reset])
 
   return (
     <section>

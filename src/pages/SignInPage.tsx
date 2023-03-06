@@ -69,7 +69,7 @@ const SignInPage = () => {
           padding: theme.spacing(6),
           borderRadius: 4
         })}>
-        <SignInForm onSubmit={signIn} isLoading={isSignInLoading} />
+        <SignInForm onSubmit={signIn} isSuccess={isSignInSuccess} isLoading={isSignInLoading} />
       </Box>
     </Container>
   )

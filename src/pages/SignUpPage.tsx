@@ -87,7 +87,11 @@ const SignUpPage = () => {
           padding: theme.spacing(6),
           borderRadius: 4
         })}>
-        <SignUpForm onSubmit={register} isLoading={isRegistrationLoading} />
+        <SignUpForm
+          onSubmit={register}
+          isSuccess={isRegistrationSuccess}
+          isLoading={isRegistrationLoading}
+        />
       </Box>
     </Container>
   )
