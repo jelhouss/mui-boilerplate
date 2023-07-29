@@ -279,7 +279,7 @@ export const getDesignTokens = (mode: PaletteMode) =>
         fontWeight: 700
       }
     }
-  } as ThemeOptions)
+  }) as ThemeOptions
 
 export function getThemedComponents(theme: Theme) {
   return {
