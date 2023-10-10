@@ -92,7 +92,7 @@ const HeaderProfileAvatarPopper = ({
       <Popper
         placement="bottom-end"
         open={isProfilePopperOpen}
-        anchorEl={triggerPopperRef.current}
+        anchorEl={triggerPopperRef?.current}
         transition
         disablePortal
         popperOptions={{
