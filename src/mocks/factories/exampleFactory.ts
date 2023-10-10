@@ -5,9 +5,9 @@ import ExamplePayload from "../../types/example/ExamplePayload"
 import ExampleUser from "../../types/example/ExampleUser"
 
 const exampleFactory = Factory.Sync.makeFactory<ExampleUser>({
-  id: Factory.each(() => faker.datatype.uuid()),
-  lastName: faker.name.lastName(),
-  firstName: faker.name.firstName()
+  id: Factory.each(() => faker.string.uuid()),
+  lastName: faker.person.lastName(),
+  firstName: faker.person.firstName()
 })
 
 const initRandomUser = exampleFactory.build()

@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest"
-import { ComponentStory, ComponentMeta } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { userEvent, waitFor, within } from "@storybook/testing-library"
 
 import Tip, { TipProps } from "./Tip"
@@ -16,11 +16,11 @@ export default {
   // More on argTypes:
   // See: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {}
-} as ComponentMeta<typeof Tip>
+} as Meta<typeof Tip>
 
 // More on component templates:
 // See: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Tip> = (args: TipProps) => <Tip {...args} />
+const Template: StoryFn<typeof Tip> = (args: TipProps) => <Tip {...args} />
 
 export const Default = Template.bind({})
 
@@ -54,9 +54,9 @@ AddTipSuccess.play = async ({ canvasElement }) => {
   const submitButton = canvas.getByRole("button", { name: /add tip/i })
   const tipInput = canvas.getByLabelText(/tip/i)
 
-  userEvent.type(tipInput, tipToAdd)
+  await userEvent.type(tipInput, tipToAdd)
 
-  userEvent.click(submitButton)
+  await userEvent.click(submitButton)
 
   await waitFor(
     () => {
@@ -81,9 +81,9 @@ ValidateTipLowerThanFive.play = async ({ canvasElement }) => {
   const submitButton = canvas.getByRole("button", { name: /add tip/i })
   const tipInput = canvas.getByLabelText(/tip/i)
 
-  userEvent.type(tipInput, tipToAdd)
+  await userEvent.type(tipInput, tipToAdd)
 
-  userEvent.click(submitButton)
+  await userEvent.click(submitButton)
 
   await waitFor(
     () => {

@@ -6,10 +6,10 @@ import UserGender from "../../shared/types/UserGender"
 import AuthenticationResponse from "../../types/authentication/AuthenticationResponse"
 
 const userFactory = Factory.Sync.makeFactory<User>({
-  id: Factory.each(() => faker.datatype.uuid()),
+  id: Factory.each(() => faker.string.uuid()),
   email: faker.internet.email(),
-  lastName: faker.name.lastName(),
-  firstName: faker.name.firstName(),
+  lastName: faker.person.lastName(),
+  firstName: faker.person.firstName(),
   gender: faker.helpers.arrayElement(Object.values(UserGender)),
   createdAt: faker.date.past().toISOString(),
   updatedAt: faker.date.recent().toISOString(),

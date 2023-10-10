@@ -26,7 +26,7 @@ const registrationHandler = (validDummyUsers: ValidDummyUser[]) => [
       gender
     })
 
-    const token = faker.random.alphaNumeric(32)
+    const token = faker.string.alphanumeric(32)
 
     validDummyUsers.push({ user, token })
 
