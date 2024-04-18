@@ -2,7 +2,7 @@
 
 React.js 18, Material UI 5, Node.js 18
 
-More: https://blog-jelhouss.vercel.app/posts/mui-boilerplate
+More: https://www.jh.tn/blog/mui-boilerplate
 
 To run this for development or demo purposes, check the `.env.development.template` file. I use it to run mocks, to do the same run: `cp .env.development.template .env.development.local` before running the app.
 
